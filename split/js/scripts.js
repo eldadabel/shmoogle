@@ -26,18 +26,28 @@ function getResultHTML(result, prefix) {
 
 
 
-function ajaxPost(query)
-{
-	
-	$.get("https://shmoogle-167709.appspot.com/shmoogle/" + query , function(data){
-        var payload = JSON.parse(data);
-        populateResults(payload, ".shmoogle_results", "Shmoogle")
-        populateResults(sortResults(payload), ".google_results", "Google");
-    });
-  
+function ajaxPost(query) {
 
-   // populateResults(stub, ".shmoogle_results", "Shmoogle")
-   // populateResults(sortResults(stub), ".google_results", "Google");;
+	$.ajax({
+	  url: "https://shmoogle-167709.appspot.com/shmoogle/" + query,
+	  success: function(data) {
+	    var payload = JSON.parse(data);
+        populateResults(payload, ".shmoogle_results", "Shmoogle")
+        populateResults(sortResults(payload), ".google_results", "Google");       
+	  },
+	  error: function(XMLHttpRequest, textStatus, errorThrown) { 
+	    if (XMLHttpRequest.status == 0) {
+	      alert(' Check Your Network.');
+	    } else if (XMLHttpRequest.status == 404) {
+	      alert('Requested URL not found.');
+	    } else if (XMLHttpRequest.status == 500) {
+	      alert('Internel Server Error.');
+	    }  else {
+	       alert('Unknow Error.\n' + XMLHttpRequest.responseText);
+	    }     
+	  }
+});
+
 }
 
 function sortResults(array) {
