@@ -222,3 +222,99 @@ body, html {
 	line-height: 18.2px;
 	margin-top: 1px;
 }
+
+
+
+/***************************  SPLIT SCREEN ********************/
+
+
+
+.search_header {
+	background-color: rgb(250,250,250);
+	height:80px;
+	width: 100%;
+	text-align: center;
+
+}
+
+.search_header .input_container {
+	width: 700px;
+	margin: 0 auto;
+}
+
+.search_header button {
+	background-color: rgb(230,230,230);
+	padding: 0 16px;
+	height: 40px;
+	line-height: 40px;
+	border: none;
+	color: rgb(117,117,117);
+	font-size: 13px;
+	font-weight: bold;
+	display: block;
+	position: relative;
+	top: 20px;
+	left: 15px;
+}
+
+.search_header button:hover {
+
+	border: 1px solid #999;
+	line-height: 38px;
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+	cursor: pointer;
+	left: 14px;
+
+
+}
+
+.search_header input {
+	width: 540px;
+	height: 44px;
+	border: 1px #eee solid;
+	border-bottom: 1px #c8c8c8 solid;
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+	outline-color: #000;
+	font-size: 16px;
+	line-height: 44px;
+	padding-left: 15px;
+	float: left;
+	margin-top: 16px;
+	margin-left: -40px;
+
+}
+
+
+
+
+.half_page {
+	width: 50%;
+	float: left;
+	background: url(../images/preloader.gif) center center no-repeat;
+	box-shadow: 2px 1px 1px rgba(0,0,0,0.2);
+	height: 100vh;
+}
+
+.half_page .header {
+	text-align: center;
+}
+
+.half_page .header .logo{
+	float: none !important;
+}
+
+.google_results .header .logo {
+	width: 155px !important;
+	background-image: url(../images/google_logo.png) !important;
+	background-size: contain !important;
+	background-position:  center center;
+}
+
+#results_page_container {
+	background: none !important;
+}
+
+#results_page_container #results_container {
+	width: 70% !important;
+	margin-left: 10% !important;
+}
