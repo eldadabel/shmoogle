@@ -9,9 +9,14 @@ function populateResults(results) {
 
 	$("#resultsCounter").html("Showing " + results.length + " results");
 
-	for (var i=0; i<results.length; i++){
-		$("#results_container").append(getResultHTML(results[i]));
+	if (results.length > 0) {
+		for (var i=0; i<results.length; i++){
+			$("#results_container").append(getResultHTML(results[i]));
+		}
+	} else {
+		showNoResults("#results_container");
 	}
+	
 
 	addTimer();
 

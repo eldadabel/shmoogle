@@ -224,6 +224,11 @@ body, html {
 }
 
 
+.noResults{
+	font-size: 30px;
+	color: #333;
+	margin-top: 30px;
+}
 
 /***************************  SPLIT SCREEN ********************/
 
@@ -310,11 +315,12 @@ body, html {
 	background-position:  center center;
 }
 
-#results_page_container {
+.split #results_page_container {
 	background: none !important;
 }
 
 #results_page_container #results_container {
 	width: 70% !important;
 	margin-left: 10% !important;
+	min-height: calc(100vh - 80px);
 }

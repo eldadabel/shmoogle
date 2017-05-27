@@ -7,8 +7,12 @@ function populateResults(results, container, prefix) {
 
 	$(container + " #resultsCounter").html("Showing " + results.length + " results");
 
-	for (var i=0; i<results.length; i++){
-		$(container + " #results_container").append(getResultHTML(results[i], prefix));
+	if (results.length > 0) {
+		for (var i=0; i<results.length; i++){
+			$(container + " #results_container").append(getResultHTML(results[i], prefix));
+		}
+	} else {
+		showNoResults(container + " #results_container");
 	}
 
 	addTimer();

@@ -130,3 +130,9 @@ function timerIncrement() {
         window.location = window.location.pathname;
     }
 }
+
+function showNoResults(container){
+
+	$(container).append('<div class="noResults">No results found for <b>' + theQuery + '</b>');
+
+}
