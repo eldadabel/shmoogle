@@ -1,0 +1,24 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+service: server
+
+# [START handlers]
+handlers:
+- url: /shmoogle/.*
+  script: view.app
+
+# [END handlers]
+
+
+libraries:
+- name: pycrypto
+  version: latest
+- name: ssl
+  version: latest
+
+builtins:
+- remote_api: on
+
+automatic_scaling:
+  max_pending_latency: automatic

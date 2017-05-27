@@ -36,7 +36,7 @@ function getResultHTML(result) {
 function ajaxPost(query) {
 
 	$.ajax({
-	  url: "https://shmoogle-167709.appspot.com/shmoogle/" + query,
+	  url: "https://server-dot-shmoogle-167709.appspot.com/shmoogle/" + query,
 	  success: function(data) {
 	    var payload = JSON.parse(data);
         populateResults(payload);      

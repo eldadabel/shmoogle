@@ -1,0 +1,37 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+default_expiration: 0d 0h
+
+# [START handlers]
+handlers:
+- url: /
+  static_files: index.html
+  upload: index.html
+
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+- url: /images
+  static_dir: images
+
+- url: /split
+  static_dir: split
+
+- url: /img
+  static_dir: img
+
+libraries:
+- name: pycrypto
+  version: latest
+- name: ssl
+  version: latest
+
+builtins:
+- remote_api: on
+
+automatic_scaling:
+  max_pending_latency: automatic

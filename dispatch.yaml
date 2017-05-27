@@ -1,0 +1,3 @@
+dispatch:
+  - url: "*/shmoogle/*"
+    module: server
