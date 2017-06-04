@@ -6,10 +6,12 @@ default_expiration: 0d 0h
 
 # [START handlers]
 handlers:
-- url: /
-  static_files: index.html
-  upload: index.html
-
+- url: /(.*\.html)
+  mime_type: text/html
+  static_files: static/\1
+  upload: static/(.*\.html)
+  expiration: "1h"
+  
 - url: /css
   static_dir: css
 
