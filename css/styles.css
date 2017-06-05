@@ -16,19 +16,36 @@ body, html {
 	width: 100%;
 }
 
-#main_page_container .header ul{
-	float: right;
+.about{
+	position: absolute;
+	right: 30px;
+	top: 5px;
 	list-style: none;
 }
 
 
-#main_page_container .header ul li{
+.about li{
+	
+}
+
+.about li a:hover {
+	background-color: #00BCD4;
+}
+
+.about li a{
+	color: #fff;
+	text-decoration: none;
 	font-size: 13px;
-	color: #000;
+	
 	line-height:24px;
 	opacity:0.75;
-	padding: 0 30px;
+	padding: 0 20px;
 	cursor: pointer;
+	background-color: #2196F3;
+	height: 40px;
+	border-radius: 3px;
+	line-height: 40px;
+	display: block;
 }
 
 #main_search_container {
