@@ -21,7 +21,7 @@ function populateResults(results, container, prefix) {
 function getResultHTML(result, prefix) {
 	var tmp = '<div class="result">';
 	tmp += '<div class="originalPosition">' + prefix + ' position: ' + result.originalIndex + '</div>';
-	tmp += '<a href="' + result.url + '" class="title">' + result.titleNoFormatting + '</a>';
+	tmp += '<a href="' + result.visibleUrl + '" class="title">' + result.titleNoFormatting + '</a>';
 	tmp += '<div class="url">' + result.visibleUrl + '</div>';
 	tmp += '<div class="content">' + result.contentNoFormatting + '</div></div>';
 

@@ -25,7 +25,7 @@ function populateResults(results) {
 function getResultHTML(result) {
 	var tmp = '<div class="result">';
 	tmp += '<div class="originalPosition">Original position: ' + result.originalIndex + '</div>';
-	tmp += '<a href="' + result.url + '" class="title">' + decodeUnicode(result.titleNoFormatting) + '</a>';
+	tmp += '<a href="' + result.visibleUrl + '" class="title">' + decodeUnicode(result.titleNoFormatting) + '</a>';
 	tmp += '<div class="url">' + result.visibleUrl + '</div>';
 	tmp += '<div class="content">' + decodeUnicode(result.contentNoFormatting) + '</div></div>';
 
