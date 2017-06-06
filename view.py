@@ -101,8 +101,9 @@ def query_google_api(query_string):
 
 
 def _query(q_string, num_page):
+    # old key: AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY
     res = requests.get(
-        'https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=20&num=20&start=%s&hl=en&prettyPrint=ture&source=gcsc&gss=.il&sig=584853a42cc2f90f5533642697d97114&cx=018389270637479457292:0wcjrpj6kes&q=%s&sort=&googlehost=www.google.com&oq=%s&callback=google.search.Search.apiary18188' % (
+        'https://www.googleapis.com/customsearch/v1element?key=AIzaSyDXuZHEiucug5UFVrRYUhls26eYQfupCwY&rsz=20&num=20&start=%s&hl=en&prettyPrint=ture&source=gcsc&gss=.il&sig=584853a42cc2f90f5533642697d97114&cx=018389270637479457292:0wcjrpj6kes&q=%s&sort=&googlehost=www.google.com&oq=%s&callback=google.search.Search.apiary18188' % (
         (int(num_page) - 1) * 20, q_string, q_string)).content
 
     return eval(res[res.find('(') + 1: res.rfind(')')].replace('\n', ''))
