@@ -17,11 +17,11 @@
 
 </head>
 
-<body>
+<body class="split">
   <div id="main_page_container">
   	<div class="header">
-  		<ul class="about">
-        <li><a href="js/about.html" class="popdown btn" title="About">What is this?</a></li>
+      <ul class="about">
+  			<li><a href="js/about.html" class="popdown btn" title="About">What is this?</a></li>
   		</ul>
   	</div>
   	<div id="main_search_container">
@@ -33,27 +33,46 @@
   </div>
 
   <div id="results_page_container">
-  	<div class="header">
-  		<div class="logo"></div>
-  		<input id="results_input_field"/>
-  		<button class="submit_btn">Shmoogle It!</button>
-      <ul class="about">
-        <li><a href="js/about.html" class="popdown btn" title="About">What is this?</a></li>
-      </ul>
-  	</div>
 
-  	<div id="results_container">
-  		<div id="resultsCounter"></div>
+    <div class="search_header">
+      <div class="input_container">
+        <input id="results_input_field"/>
+        <button class="submit_btn">Shmoogle It!</button>
+      </div>
+      
+    </div>
 
-  	</div>
+    <div class="shmoogle_results half_page">
+      <div class="header">
+        <div class="logo"></div> 
+        <ul class="about">
+          <li><a href="js/about.html" class="popdown btn" title="About">What is this?</a></li>
+        </ul>
+      </div>
+
+      <div id="results_container">
+          <div id="resultsCounter"></div>
+      </div>
+    </div>
+
+     <div class="google_results half_page">
+      <div class="header">
+        <div class="logo"></div> 
+      </div>
+
+      <div id="results_container">
+          <div id="resultsCounter"></div>
+      </div>
+    </div>
+
+  	
   </div>
 
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
   crossorigin="anonymous"></script>
   <script src="js/jquery.popdown.min.js"></script>
-  <script src="js/common.js?v=1"></script>
-  <script src="js/scripts.js?v=1"></script>
-
+  <script src="js/common.js"></script>
+  <script src="js/split.js"></script>
 </body>
 </html>
