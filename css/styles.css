@@ -231,6 +231,8 @@ body, html {
 	line-height: 16px;
 	white-space: nowrap;
 	margin-top: -2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .result .content {
