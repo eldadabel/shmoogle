@@ -55,24 +55,6 @@ def crossdomain(origin=None, methods=None, headers=None,
     return decorator
 
 
-@app.route('/shmoogle/origin/<query_string>', methods=['GET'])
-@crossdomain(origin='*')
-def query(query_string):
-    res = []
-    result_keys = ['content', 'url', 'title', 'contentNoFormatting', 'visibleUrl', 'titleNoFormatting']
-    for i in range(1, 6):
-        r = _query(query_string, i)
-        for result in r['results']:
-            for key in list(set(result.keys())-set(result_keys)):
-                result.pop(key)
-        res.extend(r['results'])
-
-    for index, dic in enumerate(res):
-        dic['originalIndex'] = index + 1
-    shuffle(res)
-    return json.dumps(res)
-
-
 
 @app.route('/shmoogle/<query_string>')
 @crossdomain(origin='*')
@@ -85,38 +67,28 @@ def query_google_api(query_string):
         for i in range(0, 10):
             r = google_api_query(query_string, i)
 
-            for result in r.get('items', {}):
+            for result in r.get('items', []):
                 for key in list(set(result.keys()) - set(result_keys_mapping.keys())):
                     result.pop(key)
                 for key, value in result_keys_mapping.iteritems():
                     result[value] = result.pop(key)
-            res.extend(r['items'])
-
+            res.extend(r.get('items', []))
         for index, dic in enumerate(res):
             dic['originalIndex'] = index + 1
         shuffle(res)
-    except:
+    except Exception as e:
+        print e
         res = []
     return json.dumps(res)
 
 
-def _query(q_string, num_page):
-    # old key: AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY
-    res = requests.get(
-        'https://www.googleapis.com/customsearch/v1element?key=AIzaSyDXuZHEiucug5UFVrRYUhls26eYQfupCwY&rsz=20&num=20&start=%s&hl=en&prettyPrint=ture&source=gcsc&gss=.il&sig=584853a42cc2f90f5533642697d97114&cx=018389270637479457292:0wcjrpj6kes&q=%s&sort=&googlehost=www.google.com&oq=%s&callback=google.search.Search.apiary18188' % (
-        (int(num_page) - 1) * 20, q_string, q_string)).content
-
-    return eval(res[res.find('(') + 1: res.rfind(')')].replace('\n', ''))
-
 
 def google_api_query(q_string, num_page):
-    import requests
-    import json
     import urllib
 
     start = str(num_page * 10 + 1)
     searchTerm = q_string
-    key = 'AIzaSyCTju7iD4QWgF6ROuKnx3V0_3AfOV0DZeQ'
+    key = 'AIzaSyDXuZHEiucug5UFVrRYUhls26eYQfupCwY'
     cx = '007050846176263573226:le3uufjq018'
     searchUrl = "https://www.googleapis.com/customsearch/v1?q=" + \
         urllib.quote(searchTerm.encode('utf-8')) + "&key=" + key + "&cx=" + cx + "&start=" + start
